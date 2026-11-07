@@ -59,4 +59,19 @@ VALUES
     (3, 'Blood Drive Welcome Team', 'Greet donors and guide them to the check-in desk.', 'Eastside Community Hall', '2027-04-16'),
     (3, 'Community Dinner', 'Set tables, serve meals, and clean up after a neighborhood dinner.', 'Main Street Fellowship Hall', '2027-04-18');
 
-	
+CREATE TABLE categories (
+	category_id SERIAL PRIMARY KEY,
+	category_name VARCHAR(150) NOT NULL
+);
+
+INSERT INTO categories 
+	(category_name)
+Values 
+	('Education and Mentorship'), ('Environmental Conservation'), ('Community Support'), ('Community Outreach');
+
+CREATE TABLE projects_categories (
+	project_id INT REFERENCES service_projects(project_id),
+	category_id INT REFERENCES categories(category_id),
+
+	PRIMARY KEY (project_id, category_id)
+);
