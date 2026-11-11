@@ -75,3 +75,29 @@ CREATE TABLE projects_categories (
 
 	PRIMARY KEY (project_id, category_id)
 );
+
+INSERT INTO projects_categories
+    (project_id, category_id)
+VALUES
+    -- Education and Mentorship (category_id = 1)
+    (1, 1),  -- Math Tutoring Night
+    (3, 1),  -- Resume Workshop
+    (4, 1),  -- Reading Buddies
+    (5, 1),  -- Science Fair Prep
+    (12, 1), -- Senior Tech Help
+
+    -- Environmental Conservation (category_id = 2)
+    (6, 2),  -- Community Garden Planting
+    (7, 2),  -- Riverbank Cleanup
+    (8, 2),  -- Spring Tree Planting
+    (9, 2),  -- Seed Swap
+    (10, 2), -- Compost Bin Build
+
+    -- Community Support (category_id = 3)
+    (2, 3),  -- Classroom Supply Drive
+    (11, 3), -- Food Pantry Packing
+    (13, 3), -- Neighborhood Coat Closet
+
+    -- Community Outreach (category_id = 4)
+    (14, 4), -- Blood Drive Welcome Team
+    (15, 4); -- Community Dinner
