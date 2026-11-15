@@ -6,7 +6,11 @@
         <h2>Service Categories</h2>
         <ul>
             <% categories.forEach(category => { %>
-            <li><%= category.category_name %></li>
+            
+                <li><a href="/categories/<%= category.category_id %>">
+                        <%= category.category_name %>
+                    </a></li>
+                
             <% }); %>
         </ul>
     </main>

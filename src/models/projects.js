@@ -12,7 +12,7 @@ const getAllServiceProjects = async () => {
     const result = await db.query(query);
 
     return result.rows;
-}
+};
 
 const getProjectsByOrganizationId = async (organizationId) => {
     const query = `
@@ -68,4 +68,19 @@ const getProjectDetails = async (id) => {
     return result.rows[0];
 };
 
-export { getAllServiceProjects, getProjectsByOrganizationId, getUpcomingProjects, getProjectDetails }  
+const getCatetoriesForProject = async (projectID) => {
+    const query = `
+    SELECT c.category_id, c.category_name
+    FROM public.categories c
+    INNER JOIN public.projects_categories pc
+    ON c.category_id = pc.category_id
+    WHERE pc.project_id = $1;
+  `;
+    const queryParams = [projectID];
+    const result = await db.query(query, queryParams);
+
+    return result.rows;
+}
+
+
+export { getAllServiceProjects, getProjectsByOrganizationId, getUpcomingProjects, getProjectDetails, getCatetoriesForProject }
